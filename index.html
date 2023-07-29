@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cryptocurrency Market</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <!-- <h1 class="brand">Crypto Tracker</h1> -->
+  <header>
+    <div class="name">
+      <p>CryptoTracker.</p>
+    </div>
+    <div class="nav">
+      <ul>
+        <li><label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label>
+          </li>
+        <li>Home</li>
+        <li>Compare</li>
+        <li>Watchlist</li>
+        <li><button type="button" class="btn btn-primary btn-sm">Dashboard</button></li>
+      </ul>
+    </div>
+</header>
+  <div class="tabs">
+    <button class="tab active" id="gridViewTab">Grid View</button>
+    <button class="tab" id="listViewTab">List View</button>
+  </div>
+  
+  <div class="container" id="dataContainer">
+    <p>Loading data...</p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
