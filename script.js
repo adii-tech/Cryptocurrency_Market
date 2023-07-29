@@ -1,6 +1,7 @@
 const gridViewTab = document.getElementById('gridViewTab');
 const listViewTab = document.getElementById('listViewTab');
 const dataContainer = document.getElementById('dataContainer');
+const dataContainer01 = document.getElementById('sec');
 let cryptocurrencyData = [];
 
 async function fetchData() {
@@ -12,6 +13,7 @@ async function fetchData() {
     return await response.json();
   } catch (error) {
     console.error('Error fetching data:', error);
+
   }
 }
 
@@ -21,34 +23,48 @@ function renderGridView() {
     const card = document.createElement('div');
     card.classList.add('card');
     card.innerHTML = `
-      <img src="${crypto.image}" alt="${crypto.name}">
-      <h3>${crypto.name}</h3>
-      <p>Price: $${crypto.current_price}</p>
-      <p>Market Cap: $${crypto.market_cap}</p>
-      <p>24h Change: ${crypto.price_change_percentage_24h}%</p>
+  
+      <div class="grid">
+            <div class="divg1">
+               <img src = "${crypto.image}" alt="${crypto.name}"/>
+               <div class="coin">
+                <div class="coinSign">${crypto.symbol}</div>
+                <div class="coinName">${crypto.name}</div>
+              </div>
+            </div>
+            <div class="divg2">
+              <p><span>${crypto.price_change_percentage_24h}%<span></p>
+            </div>
+            <div class="divg3">$ ${crypto.current_price}</div>
+            <div class="divg4">Total Volume: ${crypto.total_volume}</div>
+            <div class="divg5">Market Cap:$ ${crypto.market_cap}</div>
+        </div>
     `;
-    dataContainer.appendChild(card);
+    dataContainer01.appendChild(card);
   });
 }
 
 function renderListView() {
   dataContainer.innerHTML = `
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Market Cap</th>
-        <th>24h Change</th>
-      </tr>
       ${cryptocurrencyData.map(crypto => `
-        <tr>
-          <td><img src="${crypto.image}" alt="${crypto.name}"> ${crypto.name}</td>
-          <td>$${crypto.current_price}</td>
-          <td>$${crypto.market_cap}</td>
-          <td>${crypto.price_change_percentage_24h}%</td>
-        </tr>
+        <div class="list-data">
+        <div class="list-list">
+            <div class="div1">
+               <img src = "${crypto.image}" alt="${crypto.name}"/>
+               <div class="coin">
+                <div class="coinSign">${crypto.symbol}</div>
+                <div class="coinName">${crypto.name}</div>
+              </div>
+            </div>
+            <div class="div2">
+              <p><span>${crypto.price_change_percentage_24h}%</span></p>
+            </div>
+            <div class="div3">$ ${crypto.current_price}</div>
+            <div class="div4">${crypto.total_volume}</div>
+            <div class="div5">$ ${crypto.market_cap}</div>
+        </div>
+      </div>
       `).join('')}
-    </table>
   `;
 }
 
@@ -56,16 +72,25 @@ async function init() {
   cryptocurrencyData = await fetchData();
   renderGridView();
 
+  const line = document.createElement('div');
+  line.classList.add('line1');
+  
   gridViewTab.addEventListener('click', () => {
+    renderGridView();
     gridViewTab.classList.add('active');
     listViewTab.classList.remove('active');
-    renderGridView();
+    gridViewTab.appendChild(line);
+    listViewTab.removeChild(line);
+    
   });
 
   listViewTab.addEventListener('click', () => {
+    renderListView();
     listViewTab.classList.add('active');
     gridViewTab.classList.remove('active');
-    renderListView();
+    listViewTab.appendChild(line);
+    gridViewTab.removeChild(line);
+    
   });
 }
 

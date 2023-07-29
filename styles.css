@@ -2,8 +2,9 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a;
+    background-color:rgb(11, 11, 11);
     color: #fff;
+    font-size: 1vw;
   }
   .switch {
     position: relative;
@@ -73,6 +74,7 @@ body {
     border-radius: 1vw;
     padding: 0.1vw 0.8vw;
     background-color: #2196F3;
+    font-size: 1vw;
   }
   .nav{
     all: unset;
@@ -83,6 +85,7 @@ body {
     display: flex;
     justify-content:space-around;
   }
+
   .brand {
     font-size: 24px;
     font-weight: bold;
@@ -101,8 +104,6 @@ body {
 
   .tab {
     flex: 1;
-    padding: 10px 20px;
-    background-color: #444;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -110,70 +111,177 @@ body {
   }
 
   .tab.active {
-    background-color: #007bff;
-    color: #fff;
+    color:#007bff;
     font-weight: bold;
   }
 
   .tab.active:hover {
-    background-color: #0056b3;
+    color: #0056b3;
   }
 
   .tab:not(.active):hover {
-    background-color: #555;
+    color: #555;
+  }
+  .select-view{
+    display: flex;
+    justify-content: space-around;
+  }
+  .select-view div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    cursor: pointer;
+  }
+  .line1{
+    height: 0.1vw;
+    background-color: #2196F3;
+    transition: background-color 0.2s ease;
   }
 
   /* Styles for container and data display */
-  .container {
+  .section{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
-    padding: 20px;
+    grid-gap: 1vw;
+    column-gap: 1vw;
     justify-items: center;
-    margin-top: 160px;
   }
-
   .card {
-    border: 1px solid #888;
+    border: 1px solid #1B1B1B;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 4px #1B1B1B;
     padding: 16px;
+    width: 15vw;
+    height: 18vw;
     text-align: center;
-    background-color: #333;
+    background-color:#1B1B1B;
+    font-size: 1vw;
   }
 
   .card img {
     max-width: 100px;
     margin-bottom: 10px;
   }
-
-  /* Styles for list view */
-  table {
+  .divg1 img{
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+  .grid{
+    height: 100%;
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.4vw;
+    text-align: start;
   }
-
-  table th,
-  table td {
-    border: 1px solid #888;
-    padding: 12px;
+  .divg1{
+    display: flex;
+    gap: 1vw;
+  }
+  .divg2 p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    height: 2vw;
+      width: 6vw;
+      border: 0.1vw solid greenyellow;
+      color: greenyellow;
+      border-radius: 2vw;
   }
-
-  table th {
-    background-color: #444;
+  .divg3{
+    font-weight: bold;
+    color: greenyellow;
   }
-
-  table td img {
-    max-width: 40px;
-    margin-right: 10px;
+  .divg4{
+    color: #949494;
   }
+  .divg5{
+    color: #949494;
+  }
+  /* Styles for list view */
+  .container{
+    margin-top: 4.5vw;
+  }
+  .list-list{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+  }
+  .list-list div{
+    align-self: center;
+  }
+  .div1{
+    width: 10%;
+    display: flex;
+    gap: 1.5vw;
+  }
+  .div1 img{
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+  .coinSign{
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .coinName{
+    text-transform: capitalize;
+    color: #949494;
+  }
+  .div2{
+    width: 10%;
+    align-self: center;
+  }
+  .div2 p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: black;
+    height: 2vw;
+      width: 6vw;
+      border: 0.1vw solid greenyellow;
+      color: greenyellow;
+      border-radius: 2vw;
+  }
+  .div3{
+    font-weight: bold;
+    width: 10%;
+    color: greenyellow;
+  }
+.div4{
+  width: 10%;
+}
+.div5{
+  width: 10%;
+}
+ 
 
   /* Responsive styles */
   @media (max-width: 768px) {
-    .container {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    .section {
+      grid-template-columns: 50% 50%;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 0vw;
+      column-gap: 0vw;  
+      row-gap: 5vw;
+    }
+    .divg1{
+      font-size: 1.6vw;
+    }
+    .grid{
+      font-size: 1.1vw;
+    }
+    .select-view{
+      font-size: 2.5vw;
+    }
+    header{
+      font-size: 2vw;
+    }
+    .nav{
+      width: 50%;
     }
   }
 
